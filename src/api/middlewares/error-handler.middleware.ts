@@ -1,6 +1,6 @@
-import { Request, Response, NextFunction } from 'express'
+import { ErrorRequestHandler } from 'express'
 
-export const errorHandlerMiddleware = (err: Error, _req: Request, res: Response, _next: NextFunction): void => {
+export const errorHandlerMiddleware: ErrorRequestHandler = (err, _req, res, _next): void => {
   const { name } = err
   switch (name) {
     default:
