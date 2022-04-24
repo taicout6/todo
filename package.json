@@ -4,8 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "db": "sequelize db:drop && sequelize db:create && sequelize db:migrate"
+    "test": "mocha -r ts-node/register tests/**/*.test.ts --exit -t 60000",
+    "db": "sequelize db:drop && sequelize db:create && sequelize db:migrate",
+    "lint": "eslint --fix",
+    "start": "node -r ts-node/register src",
+    "dev": "nodemon --ext ts --watch src --exec ts-node src"
   },
   "keywords": [],
   "author": "",
@@ -25,6 +28,7 @@
   "dependencies": {
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
+    "express-async-errors": "^3.1.1",
     "mysql2": "^2.3.3",
     "sequelize": "^6.19.0"
   }
